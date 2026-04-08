@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Александр Бочкарёв — IT-директор · Руководитель цифровой трансформации</title>
+<meta name="description" content="Портфолио Александра Бочкарёва — 10 лет в IT-руководстве, 30+ реализованных проектов, AI/LLM в продакшне, WMS, ЭДО, цифровая трансформация.">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --bg2: #151820;
+    --bg3: #1c2030;
+    --accent: #4f8ef7;
+    --accent2: #7c5cbf;
+    --text: #e8eaf0;
+    --text2: #9aa3b8;
+    --border: #252a3a;
+    --green: #3ecf8e;
+    --radius: 12px;
+    --shadow: 0 4px 32px rgba(0,0,0,0.4);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,15,20,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo { font-weight: 700; font-size: 1rem; color: var(--accent); letter-spacing: .5px; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: var(--text2); text-decoration: none; font-size: .9rem; transition: color .2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    background: var(--accent); color: #fff; border: none;
+    padding: 8px 20px; border-radius: 6px; font-size: .88rem;
+    cursor: pointer; text-decoration: none; transition: opacity .2s;
+  }
+  .nav-cta:hover { opacity: .85; }
+
+  /* ── SECTIONS ── */
+  section { padding: 90px 5%; max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: .78rem; font-weight: 600; letter-spacing: 2px;
+    color: var(--accent); text-transform: uppercase; margin-bottom: 12px;
+  }
+  h2 { font-size: 2rem; font-weight: 700; margin-bottom: 48px; }
+  h2 span { color: var(--accent); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding-top: 100px; max-width: 1200px; margin: 0 auto;
+  }
+  .hero-inner { max-width: 760px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(79,142,247,.12); border: 1px solid rgba(79,142,247,.3);
+    color: var(--accent); font-size: .82rem; font-weight: 600;
+    padding: 6px 14px; border-radius: 20px; margin-bottom: 28px; letter-spacing: .5px;
+  }
+  .hero-badge::before { content: '●'; font-size: .5rem; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+  h1 span { color: var(--accent); }
+  .hero-sub { font-size: 1.15rem; color: var(--text2); margin-bottom: 36px; max-width: 560px; }
+  .hero-stats {
+    display: flex; gap: 36px; margin-bottom: 40px; flex-wrap: wrap;
+  }
+  .hero-stat strong { display: block; font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+  .hero-stat span { font-size: .82rem; color: var(--text2); }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
+  .btn-primary {
+    background: var(--accent); color: #fff; border: none;
+    padding: 13px 28px; border-radius: 8px; font-size: .95rem; font-weight: 600;
+    cursor: pointer; text-decoration: none; transition: all .2s;
+  }
+  .btn-primary:hover { background: #3a7de0; transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent; color: var(--text);
+    border: 1px solid var(--border); padding: 13px 28px;
+    border-radius: 8px; font-size: .95rem; font-weight: 600;
+    cursor: pointer; text-decoration: none; transition: all .2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-contacts { display: flex; gap: 20px; flex-wrap: wrap; }
+  .hero-contacts a {
+    color: var(--text2); text-decoration: none; font-size: .88rem;
+    display: flex; align-items: center; gap: 6px; transition: color .2s;
+  }
+  .hero-contacts a:hover { color: var(--accent); }
+
+  /* ── ABOUT ── */
+  #about { background: var(--bg); padding-top: 0; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .about-text p { color: var(--text2); margin-bottom: 16px; }
+  .about-text p strong { color: var(--text); }
+  .about-highlight {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius); padding: 20px 24px; margin-top: 24px;
+    font-size: .92rem; color: var(--text2);
+  }
+  .about-highlight strong { color: var(--green); }
+  .skills-grid { display: flex; flex-direction: column; gap: 20px; }
+  .skill-group h4 { font-size: .78rem; font-weight: 600; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 10px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    background: var(--bg3); border: 1px solid var(--border);
+    color: var(--text2); font-size: .8rem; padding: 4px 12px;
+    border-radius: 20px; transition: all .2s;
+  }
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── ACHIEVEMENTS ── */
+  #achievements { background: var(--bg2); border-radius: var(--radius); margin: 0 5%; padding: 70px 60px; max-width: none; }
+  .ach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+  .ach-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px 24px;
+    transition: all .25s;
+  }
+  .ach-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
+  .ach-icon { font-size: 2rem; margin-bottom: 16px; }
+  .ach-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 12px; }
+  .ach-card ul { list-style: none; }
+  .ach-card ul li { color: var(--text2); font-size: .88rem; padding: 4px 0; padding-left: 16px; position: relative; }
+  .ach-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: .8rem; }
+  .ach-card ul li strong { color: var(--green); }
+
+  /* ── PROJECTS ── */
+  #projects { }
+  .filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+  .filter-btn {
+    background: var(--bg2); border: 1px solid var(--border);
+    color: var(--text2); padding: 7px 18px; border-radius: 20px;
+    font-size: .84rem; cursor: pointer; transition: all .2s;
+  }
+  .filter-btn:hover, .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+  .project-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px;
+    cursor: pointer; transition: all .25s; position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transform: scaleX(0); transition: transform .3s; transform-origin: left;
+  }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+  .project-cat {
+    background: rgba(79,142,247,.12); color: var(--accent);
+    font-size: .75rem; font-weight: 600; padding: 3px 10px; border-radius: 12px;
+  }
+  .project-dur { color: var(--text2); font-size: .8rem; }
+  .project-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+  .project-desc { color: var(--text2); font-size: .88rem; margin-bottom: 16px; line-height: 1.5; }
+  .project-results { list-style: none; }
+  .project-results li {
+    color: var(--text2); font-size: .84rem; padding: 3px 0; padding-left: 18px; position: relative;
+  }
+  .project-results li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+  .project-results li strong { color: var(--green); }
+  .project-team { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--text2); font-size: .8rem; }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--bg); }
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+  .tl-item { position: relative; margin-bottom: 44px; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -33px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--bg);
+    box-shadow: 0 0 0 3px rgba(79,142,247,.25);
+  }
+  .tl-date { font-size: .8rem; color: var(--accent); font-weight: 600; letter-spacing: .5px; margin-bottom: 6px; }
+  .tl-company { font-size: 1.05rem; font-weight: 700; margin-bottom: 2px; }
+  .tl-role { color: var(--text2); font-size: .9rem; margin-bottom: 12px; }
+  .tl-desc { color: var(--text2); font-size: .88rem; }
+  .tl-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .tl-chip {
+    background: rgba(79,142,247,.08); border: 1px solid rgba(79,142,247,.2);
+    color: var(--accent); font-size: .75rem; padding: 3px 10px; border-radius: 12px;
+  }
+  .tl-results { margin-top: 12px; }
+  .tl-results li { color: var(--text2); font-size: .84rem; padding: 2px 0 2px 18px; position: relative; list-style: none; }
+  .tl-results li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+  .tl-results li strong { color: var(--green); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--bg2); border-radius: var(--radius); margin: 0 5% 80px; padding: 70px 60px; max-width: none; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .contact-text h2 { margin-bottom: 16px; }
+  .contact-text p { color: var(--text2); margin-bottom: 28px; }
+  .contact-links { display: flex; flex-direction: column; gap: 16px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 20px;
+    text-decoration: none; color: var(--text); transition: all .2s;
+  }
+  .contact-link:hover { border-color: var(--accent); transform: translateX(4px); }
+  .contact-link .icon { font-size: 1.3rem; width: 36px; text-align: center; }
+  .contact-link .info strong { display: block; font-size: .92rem; }
+  .contact-link .info span { font-size: .8rem; color: var(--text2); }
+  .contact-note {
+    background: var(--bg); border: 1px solid var(--border);
+    border-left: 3px solid var(--green); border-radius: var(--radius);
+    padding: 20px 24px;
+  }
+  .contact-note h4 { font-size: .95rem; margin-bottom: 10px; }
+  .contact-note ul { list-style: none; }
+  .contact-note ul li { color: var(--text2); font-size: .88rem; padding: 4px 0 4px 18px; position: relative; }
+  .contact-note ul li::before { content: '✓'; position: absolute; left: 0; color: var(--green); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center; padding: 28px 5%;
+    border-top: 1px solid var(--border); color: var(--text2); font-size: .82rem;
+  }
+
+  /* ── HIDDEN ── */
+  .hidden { display: none !important; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 4%; }
+    .nav-links { display: none; }
+    section { padding: 70px 4%; }
+    #achievements, #contact { margin: 0 4%; padding: 44px 28px; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    h2 { font-size: 1.6rem; }
+    .hero-stats { gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">А. Бочкарёв</div>
+  <ul class="nav-links">
+    <li><a href="#about">О себе</a></li>
+    <li><a href="#projects">Проекты</a></li>
+    <li><a href="#experience">Опыт</a></li>
+    <li><a href="#contact">Контакты</a></li>
+  </ul>
+  <a href="https://t.me/AleksB65" class="nav-cta">Написать в Telegram</a>
+</nav>
+
+<!-- HERO -->
+<div style="padding: 0 5%;">
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Открыт к предложениям · Москва</div>
+    <h1>Александр<br><span>Бочкарёв</span></h1>
+    <p class="hero-sub">IT-директор · Руководитель цифровой трансформации · AI в продакшне</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>10</strong><span>лет в IT-руководстве</span></div>
+      <div class="hero-stat"><strong>30+</strong><span>реализованных проектов</span></div>
+      <div class="hero-stat"><strong>16</strong><span>специалистов в команде</span></div>
+      <div class="hero-stat"><strong>350k+</strong><span>₽ / ожидания</span></div>
+    </div>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">Посмотреть проекты</a>
+      <a href="#contact" class="btn-outline">Связаться</a>
+    </div>
+    <div class="hero-contacts">
+      <a href="tel:+79244086323">📱 +7 (924) 408-63-23</a>
+      <a href="mailto:x65i@yandex.ru">✉️ x65i@yandex.ru</a>
+      <a href="https://t.me/AleksB65">💬 @AleksB65</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">О себе</div>
+  <h2>Превращаю IT<br><span>в бизнес-результат</span></h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Прошёл путь от системного администратора до руководителя цифровой трансформации с командой 16 специалистов. Специализируюсь на пересечении трёх областей, которые редко живут в одном человеке:</p>
+      <p><strong>Проектное управление × Техническая архитектура × AI и автоматизация.</strong></p>
+      <p>Реально внедрял LLM в производственный контур — не как эксперимент, а как рабочий инструмент: корпоративный бот, RAG, транскрибация звонков в 1С — всё в закрытом контуре без передачи данных наружу.</p>
+      <p>Ключевые домены: цифровая трансформация, Healthcare IT, складские и производственные системы, импортозамещение, 44-ФЗ / 223-ФЗ.</p>
+      <div class="about-highlight">
+        <strong>Свидетельство о регистрации программы ЭВМ № 2024682243</strong> — разработал и зарегистрировал WMS-систему как объект интеллектуальной собственности.
+      </div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Управление</h4>
+        <div class="tags">
+          <span class="tag">Agile</span><span class="tag">Scrum</span><span class="tag">PMBoK</span>
+          <span class="tag">Kanban</span><span class="tag">Waterfall</span><span class="tag">OKR/KPI</span>
+          <span class="tag">Vendor management</span><span class="tag">Presale</span><span class="tag">Стейкхолдер-менеджмент</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Технологии</h4>
+        <div class="tags">
+          <span class="tag">1С (УПП, КА, БГУ, ЗУП)</span><span class="tag">WMS InStock</span>
+          <span class="tag">AI/LLM · Ollama</span><span class="tag">RAG · Dify</span>
+          <span class="tag">Airflow</span><span class="tag">RabbitMQ</span>
+          <span class="tag">VMware · Hyper-V</span><span class="tag">Zabbix</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Анализ и процессы</h4>
+        <div class="tags">
+          <span class="tag">BPMN</span><span class="tag">UML</span><span class="tag">ITIL</span>
+          <span class="tag">44-ФЗ / 223-ФЗ</span><span class="tag">Импортозамещение</span><span class="tag">Lean / 5S</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<div style="padding: 0 0 90px;">
+<section id="achievements">
+  <div class="section-label">Ключевые результаты</div>
+  <h2>Что <span>умею</span> на практике</h2>
+  <div class="ach-grid">
+    <div class="ach-card">
+      <div class="ach-icon">🏭</div>
+      <h3>WMS 30 000 м²</h3>
+      <ul>
+        <li>Точность инвентаризации <strong>99,95%</strong></li>
+        <li>Скорость отбора заказа <strong>+70%</strong></li>
+        <li>Пропускная способность <strong>+35%</strong> при том же штате</li>
+        <li>Госрегистрация ЭВМ <strong>№ 2024682243</strong></li>
+      </ul>
+    </div>
+    <div class="ach-card">
+      <div class="ach-icon">🤖</div>
+      <h3>AI/LLM в продакшне</h3>
+      <ul>
+        <li>Анализ 100-стр. отчёта: <strong>3 ч → 12 мин</strong></li>
+        <li>Точность поиска в документах <strong>92%</strong></li>
+        <li>Закрытый контур — данные <strong>не покидают</strong> организацию</li>
+        <li>Транскрибация звонков в 1С ИТ</li>
+      </ul>
+    </div>
+    <div class="ach-card">
+      <div class="ach-icon">📄</div>
+      <h3>ЭДО и документооборот</h3>
+      <ul>
+        <li>Согласование: <strong>5 дней → 4 часа</strong> (−92%)</li>
+        <li>Ошибки передачи в БГУ: <strong>18% → 0,2%</strong></li>
+        <li>WMS архива: экономия <strong>4,2 млн ₽/год</strong></li>
+        <li>Аудит: 3–5 дней → <strong>1 день</strong></li>
+      </ul>
+    </div>
+    <div class="ach-card">
+      <div class="ach-icon">📈</div>
+      <h3>BI и управление данными</h3>
+      <ul>
+        <li>Отчётность: <strong>3 дня → 30 минут</strong></li>
+        <li>Решения принимаются <strong>в 5–7 раз быстрее</strong></li>
+        <li>Интеграция: 1С:УПП + МИС + ЛИС</li>
+        <li>Ролевая модель доступа для ТОП-менеджмента</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Проекты</div>
+  <h2>30+ реализованных <span>проектов</span></h2>
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterProjects('all', this)">Все</button>
+    <button class="filter-btn" onclick="filterProjects('logistics', this)">Логистика / WMS</button>
+    <button class="filter-btn" onclick="filterProjects('ai', this)">AI / Автоматизация</button>
+    <button class="filter-btn" onclick="filterProjects('analytics', this)">Аналитика</button>
+    <button class="filter-btn" onclick="filterProjects('infra', this)">Инфраструктура</button>
+    <button class="filter-btn" onclick="filterProjects('pmo', this)">PMO / Команда</button>
+  </div>
+  <div class="projects-grid" id="projectsGrid">
+
+    <div class="project-card" data-cat="logistics">
+      <div class="project-meta">
+        <span class="project-cat">Логистика / WMS</span>
+        <span class="project-dur">12 мес · 4 чел.</span>
+      </div>
+      <h3>WMS для основных складов (30 000 м²)</h3>
+      <p class="project-desc">Разработал и зарегистрировал собственную подсистему учёта размещения продукции. Двусторонняя интеграция с 1С:УПП и ГИС «Честный ЗНАК». Промышленная Wi-Fi (QTECH, импортозамещение Cisco).</p>
+      <ul class="project-results">
+        <li>Скорость отбора: 30 → <strong>9 мин/заказ (−70%)</strong></li>
+        <li>Точность инвентаризации — <strong>99,95%</strong></li>
+        <li>Пропускная способность склада <strong>+35%</strong></li>
+        <li>Свидетельство ЭВМ <strong>№ 2024682243</strong></li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проекта / Разработчик</div>
+    </div>
+
+    <div class="project-card" data-cat="logistics">
+      <div class="project-meta">
+        <span class="project-cat">Логистика / Автоматизация</span>
+        <span class="project-dur">12 мес · 5 чел.</span>
+      </div>
+      <h3>Автоматизация курьерской службы</h3>
+      <p class="project-desc">Динамическая маршрутизация 100+ курьеров по Москве и МО (Яндекс.Маршрутизация API). Интеграция API транспортных подрядчиков (СДЭК, ТК КАРГО). QR-учёт ТМЦ в пути, сверка в реальном времени.</p>
+      <ul class="project-results">
+        <li>Нагрузка на операторов <strong>−85%</strong></li>
+        <li>Потери образцов в пути: <strong>5% → 1%</strong></li>
+        <li>Согласование с ТК: <strong>2–4 ч → 5 минут</strong></li>
+        <li>Среднее время доставки <strong>−30%</strong></li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проекта</div>
+    </div>
+
+    <div class="project-card" data-cat="logistics">
+      <div class="project-meta">
+        <span class="project-cat">Логистика / ERP</span>
+        <span class="project-dur">8 мес · 4 чел.</span>
+      </div>
+      <h3>Миграция управленческого учёта Folio → 1С:УТ</h3>
+      <p class="project-desc">Масштабная миграция без потери данных и единого дня простоя. Единый учётный контур от заказа до реализации. Автоматизация КП: генерация из заявки с учётом скидок и логистики.</p>
+      <ul class="project-results">
+        <li>Ошибки себестоимости: <strong>14% → 1,2%</strong></li>
+        <li>Скорость КП: <strong>3 ч → 8 минут</strong></li>
+        <li>Экономия <strong>2,4 млн ₽/год</strong></li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проекта</div>
+    </div>
+
+    <div class="project-card" data-cat="logistics">
+      <div class="project-meta">
+        <span class="project-cat">Документооборот / WMS</span>
+        <span class="project-dur">2 мес · 4 чел.</span>
+      </div>
+      <h3>WMS архивных документов (замена подрядчика)</h3>
+      <p class="project-desc">Собственная система на базе 1С:ДО взамен внешнего подрядчика. Автоматизация приёма, выдачи, сроков хранения. Поиск по топологии: этаж / стеллаж / ящик.</p>
+      <ul class="project-results">
+        <li>Экономия <strong>4,2 млн ₽/год</strong></li>
+        <li>Поиск документа: <strong>45 мин → 2 минуты</strong></li>
+        <li>Подача заявки: <strong>60 мин → 15 минут</strong></li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проекта</div>
+    </div>
+
+    <div class="project-card" data-cat="ai">
+      <div class="project-meta">
+        <span class="project-cat">AI / LLM</span>
+        <span class="project-dur">3 мес · 2 чел.</span>
+      </div>
+      <h3>AI-интеграция в организации (закрытый контур)</h3>
+      <p class="project-desc">Локальный AI-стек: Ollama LLM, Dify, RAG + Reranker, Stable Diffusion, ASR Vosk. ИИ-бот на внутренний портал. Транскрибация звонков в 1С. Все данные остаются внутри организации.</p>
+      <ul class="project-results">
+        <li>Анализ 100-стр. отчёта: <strong>3 ч → 12 минут</strong></li>
+        <li>Точность поиска в документах: <strong>92%</strong> (до Reranker: 68%)</li>
+        <li>Скорость ревью кода <strong>+70%</strong></li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проекта / Разработчик</div>
+    </div>
+
+    <div class="project-card" data-cat="ai">
+      <div class="project-meta">
+        <span class="project-cat">Производство / Автоматизация</span>
+        <span class="project-dur">9 мес · 4 чел.</span>
+      </div>
+      <h3>Цифровизация маршрутных листов на производстве</h3>
+      <p class="project-desc">Полная замена бумажных МЛ на электронные в 1С:УПП (7 типов). PWA на планшетах: ввод параметров, QR-сканирование, фотофиксация, ЭЦП КриптоПро. Real-time мониторинг для руководителей смены.</p>
+      <ul class="project-results">
+        <li>Ошибки этикетирования: <strong>5,3% → 0,4%</strong></li>
+        <li>Цикл сборки-упаковки <strong>−18%</strong></li>
+        <li>Готовность к аудиту ISO 13485, GMP</li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проекта</div>
+    </div>
+
+    <div class="project-card" data-cat="analytics">
+      <div class="project-meta">
+        <span class="project-cat">Аналитика / Управленческий учёт</span>
+        <span class="project-dur">3 мес · 3 чел.</span>
+      </div>
+      <h3>BI-аналитика для ТОП-менеджмента</h3>
+      <p class="project-desc">Аналитический слой на 1С:Аналитика 8.3. Дашборды: Бюджетирование (План/Факт/Прогноз), Себестоимость, Оборачиваемость запасов. Интеграция: 1С:УПП + МИС + ЛИС. Обновление 4 раза в день.</p>
+      <ul class="project-results">
+        <li>Подготовка отчётности: <strong>3 дня → 30 минут</strong></li>
+        <li>Скорость решений <strong>в 5–7 раз быстрее</strong></li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проекта</div>
+    </div>
+
+    <div class="project-card" data-cat="analytics">
+      <div class="project-meta">
+        <span class="project-cat">Управленческий учёт / Интеграции</span>
+        <span class="project-dur">14 мес · 4 чел.</span>
+      </div>
+      <h3>Модернизация ядра управленческого учёта</h3>
+      <p class="project-desc">Бесшовная миграция без потери данных и простоя. Перенос 42 отчётов, переписал 13 интеграций (ЛИС, МИС, SQL), внедрил RabbitMQ. Верификация 32 регистров. Назначил 43 владельца процессов.</p>
+      <ul class="project-results">
+        <li>Инцидент: <strong>8 ч → 22 минуты</strong></li>
+        <li>100% автономность операторов</li>
+        <li>Удовлетворённость интерфейсом <strong>+70%</strong></li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проекта</div>
+    </div>
+
+    <div class="project-card" data-cat="analytics">
+      <div class="project-meta">
+        <span class="project-cat">Документооборот / Регуляторные</span>
+        <span class="project-dur">8 мес · 7 чел.</span>
+      </div>
+      <h3>ЭДО (1С:ДО + 1С:БГУ)</h3>
+      <p class="project-desc">Интеграция по Приказу Минфина РФ №61. Гибкие маршруты согласования. Штампы с КЭП и визуальным статус-баром. Аудиторский интерфейс: кто/когда/откуда работал с документом.</p>
+      <ul class="project-results">
+        <li>Согласование: <strong>5 дней → 4 часа (−92%)</strong></li>
+        <li>Ошибки передачи в БГУ: <strong>18% → 0,2%</strong></li>
+        <li>Соответствие ФЗ-63, Приказу Минцифры №737</li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проекта</div>
+    </div>
+
+    <div class="project-card" data-cat="infra">
+      <div class="project-meta">
+        <span class="project-cat">Инфраструктура / Импортозамещение</span>
+        <span class="project-dur">10 мес · 6 чел.</span>
+      </div>
+      <h3>Корпоративный портал + мессенджер (2000+ пользователей)</h3>
+      <p class="project-desc">Bitrix24 on-premise + TrueConf ВКС. Единая аутентификация (LDAP + 1С:ЗИК). Автоматизация HR-процессов. Мессенджер 2000 пользователей. Полное импортозамещение Slack/Telegram (ФСТЭК).</p>
+      <ul class="project-results">
+        <li>HR-запросы <strong>−75%</strong></li>
+        <li>Оформление отпуска: <strong>2 дня → 30 минут</strong></li>
+        <li>Реакция поддержки: <strong>4 ч → 25 минут</strong></li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проекта</div>
+    </div>
+
+    <div class="project-card" data-cat="infra">
+      <div class="project-meta">
+        <span class="project-cat">Безопасность / Импортозамещение</span>
+        <span class="project-dur">4 мес · 4 чел.</span>
+      </div>
+      <h3>Комплексная СКУД + видеонаблюдение</h3>
+      <p class="project-desc">Под ключ: RusGuard + Trassir, интеграция с 1С:ЗИК (увольнение → блокировка за 5 мин). Автошлагбаумы с распознаванием номеров. Биометрия (лицо + отпечаток). Импортозамещение 100%.</p>
+      <ul class="project-results">
+        <li>Инциденты при въезде ТС <strong>−92%</strong></li>
+        <li>Соответствие <strong>ФСТЭК, ФСБ, ГОСТ Р 51903-2022</strong></li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проекта</div>
+    </div>
+
+    <div class="project-card" data-cat="infra">
+      <div class="project-meta">
+        <span class="project-cat">Разработка продукта / Embedded</span>
+        <span class="project-dur">6 мес · 4 чел.</span>
+      </div>
+      <h3>Мобильный термошкаф-контейнер для 19″ оборудования</h3>
+      <p class="project-desc">IP67, −40…+70°C, ударопрочность 1.5 м. Логика на OWEN Logic: температура, влажность, аварийные режимы. HMI на СП307. Запуск в серийное производство.</p>
+      <ul class="project-results">
+        <li>Сертификат <strong>Ростеста</strong></li>
+        <li>Применяется в комплексах <strong>МЧС и ВКС РФ</strong></li>
+        <li>Уникальный продукт на российском рынке</li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проекта / Разработчик</div>
+    </div>
+
+    <div class="project-card" data-cat="pmo">
+      <div class="project-meta">
+        <span class="project-cat">PMO / Управление командой</span>
+        <span class="project-dur">8 мес · 16 чел.</span>
+      </div>
+      <h3>Формирование проектного отдела с нуля</h3>
+      <p class="project-desc">Найм, онбординг, грейдирование 16 специалистов. Регламенты жизненного цикла ПО. Единый инструментарий: Confluence, Kaiten, StormBPMN. Стандарты документирования для аудита.</p>
+      <ul class="project-results">
+        <li>Запуск проекта: <strong>2 недели → 3 дня (−85%)</strong></li>
+        <li>Проекты с чёткими требованиями: <strong>30% → 95%</strong></li>
+        <li>Результативность команды <strong>+50%</strong></li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проектной группы</div>
+    </div>
+
+    <div class="project-card" data-cat="pmo">
+      <div class="project-meta">
+        <span class="project-cat">EdTech / Автоматизация</span>
+        <span class="project-dur">5 мес · 5 чел.</span>
+      </div>
+      <h3>Модернизация учебного центра (1С:УУЦ)</h3>
+      <p class="project-desc">Полный цикл ДПО: регистрация, расписание, сертификаты (Приказ Минобрнауки №445). Лендинги с DaData, эквайринг Assist. Интеграция лендинг → 1С:УУЦ через REST API. Полный отказ от Excel.</p>
+      <ul class="project-results">
+        <li>Охват обучаемых <strong>+200%</strong></li>
+        <li>Заявка: <strong>20 мин → 90 секунд</strong></li>
+        <li><strong>ROI за 11 месяцев</strong></li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проекта</div>
+    </div>
+
+    <div class="project-card" data-cat="pmo">
+      <div class="project-meta">
+        <span class="project-cat">EdTech / Франчайзинг</span>
+        <span class="project-dur">10 мес · 4 чел.</span>
+      </div>
+      <h3>Обучающий портал для сети франчайзинговых клиник</h3>
+      <p class="project-desc">Сквозной профиль слушателя (не привязан к клинике). Цифровой сертификат с QR и API-валидацией. ЛК руководителя ЛПУ: KPI, статусы обучения. Wiki с версионированием. Мобильная версия.</p>
+      <ul class="project-results">
+        <li>Охват обучения: <strong>58% → 96%</strong></li>
+        <li>Адаптация нового сотрудника: <strong>21 → 9 дней</strong></li>
+        <li>Обязательные курсы <strong>−35% времени</strong></li>
+      </ul>
+      <div class="project-team">👤 Роль: Руководитель проекта</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Опыт</div>
+  <h2>Карьерный <span>путь</span></h2>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-date">Апрель 2023 — настоящее время · 3 года 1 месяц</div>
+      <div class="tl-company">ФБУН ЦНИИ Эпидемиологии Роспотребнадзора</div>
+      <div class="tl-role">Руководитель проектного отдела · Федеральный научный центр, 2000+ сотрудников</div>
+      <div class="tl-desc">Руководство командой 16 специалистов (3 PM, 2 BA, 1 SA, 1 QA, 3 разработчика 1С, 2 web-разработчика, 2 системных инженера, 1 сетевой инженер). Портфель — 20+ активных инициатив.</div>
+      <ul class="tl-results">
+        <li>Выстроил проектный отдел с нуля: найм, грейдирование, KPI для каждой роли</li>
+        <li>Поднял долю проектов с чёткими требованиями: <strong>30% → 95%</strong></li>
+        <li>Сократил время запуска проектов: <strong>2 недели → 3 дня</strong></li>
+        <li>Управление 5+ вендорами: SLA-контракты, контроль качества, защита перед собственником</li>
+      </ul>
+      <div class="tl-chips">
+        <span class="tl-chip">Agile / Scrum</span><span class="tl-chip">1С (УПП, БГУ, ДО)</span>
+        <span class="tl-chip">AI/LLM</span><span class="tl-chip">WMS</span><span class="tl-chip">BI</span>
+        <span class="tl-chip">44-ФЗ / 223-ФЗ</span><span class="tl-chip">Импортозамещение</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Октябрь 2020 — Апрель 2023 · 2 года 7 месяцев</div>
+      <div class="tl-company">ООО «Корсар» — korsarcase.ru</div>
+      <div class="tl-role">Заместитель технического директора / Начальник производственного участка</div>
+      <div class="tl-desc">Двойная зона ответственности: IT-департамент + конструкторско-технологический отдел. Команда 30+ сотрудников.</div>
+      <ul class="tl-results">
+        <li>WMS InStock: недостача ячеек <strong>18% → 0,5%</strong></li>
+        <li>1С:УПП/КА (миграция с Folio): экономия <strong>2,4 млн ₽/год</strong></li>
+        <li>Серверная: SLA <strong>99,99%</strong>, простои <strong>4,2 ч/мес → 5 мин/год</strong></li>
+        <li>Сайт компании: рост B2B-заявок <strong>+210%</strong>, реестр «Сделано в России»</li>
+        <li>Термошкаф: разработал OWEN Logic + HMI → применяется в <strong>МЧС и ВКС РФ</strong></li>
+      </ul>
+      <div class="tl-chips">
+        <span class="tl-chip">Зам. техдиректора</span><span class="tl-chip">WMS InStock</span>
+        <span class="tl-chip">1С:УПП</span><span class="tl-chip">VMware / Hyper-V</span><span class="tl-chip">Lean / 5S</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Октябрь 2019 — Октябрь 2020</div>
+      <div class="tl-company">ООО «Корсар»</div>
+      <div class="tl-role">Старший системный администратор</div>
+      <ul class="tl-results">
+        <li>Проектирование сетевой инфраструктуры с нуля: СКС, Wi-Fi, VLAN, VPN</li>
+        <li>Zabbix: инциденты <strong>−80%</strong>, SLA критичных сервисов — 4 офиса без перебоев</li>
+      </ul>
+      <div class="tl-chips">
+        <span class="tl-chip">Windows Server</span><span class="tl-chip">VMware / Proxmox</span><span class="tl-chip">Zabbix</span><span class="tl-chip">MikroTik</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Январь 2016 — Июнь 2018</div>
+      <div class="tl-company">ФГКУ «УВО ВНГ России по Хабаровскому краю»</div>
+      <div class="tl-role">Инженер 1 категории</div>
+      <ul class="tl-results">
+        <li>Администрирование Windows Server (AD, DHCP, DNS), поддержка LAN</li>
+        <li>База знаний: типовые обращения <strong>−30–40%</strong></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div style="padding: 0 0 0;">
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-text">
+      <div class="section-label">Контакты</div>
+      <h2>Открыт к <span>предложениям</span></h2>
+      <p>Рассматриваю позиции: Директор по цифровой трансформации · IT-директор · Руководитель IT-проектов. Москва, офис / гибрид / удалённо. Готов к командировкам.</p>
+      <div class="contact-note">
+        <h4>Ожидания</h4>
+        <ul>
+          <li>Зарплата: от 350 000 ₽</li>
+          <li>Город: Москва</li>
+          <li>Формат: офис / гибрид / удалённо</li>
+          <li>Командировки: готов</li>
+        </ul>
+      </div>
+    </div>
+    <div class="contact-links">
+      <a href="https://t.me/AleksB65" class="contact-link">
+        <span class="icon">💬</span>
+        <div class="info"><strong>Telegram</strong><span>@AleksB65 — предпочтительный канал</span></div>
+      </a>
+      <a href="tel:+79244086323" class="contact-link">
+        <span class="icon">📱</span>
+        <div class="info"><strong>+7 (924) 408-63-23</strong><span>Звонки и WhatsApp</span></div>
+      </a>
+      <a href="mailto:x65i@yandex.ru" class="contact-link">
+        <span class="icon">✉️</span>
+        <div class="info"><strong>x65i@yandex.ru</strong><span>Email</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Александр Бочкарёв · IT-директор · Руководитель цифровой трансформации</p>
+</footer>
+
+<script>
+function filterProjects(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.project-card').forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+</script>
+</body>
+</html>
