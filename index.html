@@ -126,19 +126,51 @@
 
   /* ── ACHIEVEMENTS ── */
   #achievements { background: var(--bg2); border-radius: var(--radius); margin: 0 5%; padding: 44px 48px; max-width: none; }
-  .ach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
-  .ach-card {
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-bottom: 32px;
+  }
+  .metric-card {
     background: var(--bg); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 28px 24px;
-    transition: all .25s;
+    text-align: center; transition: all .25s; position: relative; overflow: hidden;
   }
-  .ach-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
-  .ach-icon { font-size: 2rem; margin-bottom: 16px; }
-  .ach-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 12px; }
-  .ach-card ul { list-style: none; }
-  .ach-card ul li { color: var(--text2); font-size: .88rem; padding: 4px 0; padding-left: 16px; position: relative; }
-  .ach-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: .8rem; }
-  .ach-card ul li strong { color: var(--green); }
+  .metric-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transform: scaleX(0); transition: transform .3s; transform-origin: left;
+  }
+  .metric-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
+  .metric-card:hover::after { transform: scaleX(1); }
+  .metric-value {
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+    color: var(--accent); line-height: 1; margin-bottom: 8px;
+    letter-spacing: -1px;
+  }
+  .metric-value.green { color: var(--green); }
+  .metric-label { font-size: .78rem; color: var(--text2); line-height: 1.4; }
+  .metric-label strong { display: block; color: var(--text); font-size: .82rem; margin-bottom: 2px; }
+  .metric-divider {
+    display: flex; align-items: center; gap: 12px;
+    color: var(--text2); font-size: .78rem; letter-spacing: 1px;
+    text-transform: uppercase; margin: 28px 0 20px;
+  }
+  .metric-divider::before, .metric-divider::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+  .metrics-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+  @media (max-width: 900px) {
+    .metrics-grid, .metrics-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .metrics-grid, .metrics-grid-2 { grid-template-columns: 1fr 1fr; }
+  }
 
   /* ── PROJECTS ── */
   #projects { }
@@ -403,48 +435,43 @@
 <div style="padding: 0 0 60px;">
 <section id="achievements">
   <div class="section-label">Ключевые результаты</div>
-  <h2>Что <span>умею</span> на практике</h2>
-  <div class="ach-grid">
-    <div class="ach-card">
-      <div class="ach-icon">🏭</div>
-      <h3>WMS 30 000 м²</h3>
-      <ul>
-        <li>Точность инвентаризации <strong>99,95%</strong></li>
-        <li>Скорость отбора заказа <strong>+70%</strong></li>
-        <li>Пропускная способность <strong>+35%</strong> при том же штате</li>
-        <li>Свидетельство ЭВМ <strong>№ 2024682243</strong> (WMS-система)</li>
-        <li>Свидетельство ЭВМ <strong>№ 2026613236</strong> («Учет активов ИТ»)</li>
-      </ul>
+  <h2>Цифры говорят <span>сами за себя</span></h2>
+
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-value">99,95%</div>
+      <div class="metric-label"><strong>Точность WMS</strong>склад 30 000 м², собственная разработка</div>
     </div>
-    <div class="ach-card">
-      <div class="ach-icon">🤖</div>
-      <h3>AI/LLM в продакшне</h3>
-      <ul>
-        <li>Анализ 100-стр. отчёта: <strong>3 ч → 12 мин</strong></li>
-        <li>Точность поиска в документах <strong>92%</strong></li>
-        <li>Закрытый контур — данные <strong>не покидают</strong> организацию</li>
-        <li>Транскрибация звонков в 1С ИТ</li>
-      </ul>
+    <div class="metric-card">
+      <div class="metric-value">−92%</div>
+      <div class="metric-label"><strong>Время согласования ЭДО</strong>5 дней → 4 часа</div>
     </div>
-    <div class="ach-card">
-      <div class="ach-icon">📄</div>
-      <h3>ЭДО и документооборот</h3>
-      <ul>
-        <li>Согласование: <strong>5 дней → 4 часа</strong> (−92%)</li>
-        <li>Ошибки передачи в БГУ: <strong>18% → 0,2%</strong></li>
-        <li>WMS архива: экономия <strong>4,2 млн ₽/год</strong></li>
-        <li>Аудит: 3–5 дней → <strong>1 день</strong></li>
-      </ul>
+    <div class="metric-card">
+      <div class="metric-value green">4,2 млн</div>
+      <div class="metric-label"><strong>₽/год экономия</strong>WMS архивных документов</div>
     </div>
-    <div class="ach-card">
-      <div class="ach-icon">📈</div>
-      <h3>BI и управление данными</h3>
-      <ul>
-        <li>Отчётность: <strong>3 дня → 30 минут</strong></li>
-        <li>Решения принимаются <strong>в 5–7 раз быстрее</strong></li>
-        <li>Интеграция: 1С:УПП + МИС + ЛИС</li>
-        <li>Ролевая модель доступа для ТОП-менеджмента</li>
-      </ul>
+    <div class="metric-card">
+      <div class="metric-value">12 мин</div>
+      <div class="metric-label"><strong>Анализ 100-стр. отчёта</strong>AI/LLM в закрытом контуре (было 3 часа)</div>
+    </div>
+  </div>
+
+  <div class="metrics-grid-2">
+    <div class="metric-card">
+      <div class="metric-value">−85%</div>
+      <div class="metric-label"><strong>Время запуска проекта</strong>2 недели → 3 дня</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value green">30 мин</div>
+      <div class="metric-label"><strong>Управленческая отчётность</strong>BI для ТОП (было 3 дня)</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">+210%</div>
+      <div class="metric-label"><strong>Рост B2B-заявок</strong>после редизайна сайта за 6 месяцев</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value green">2</div>
+      <div class="metric-label"><strong>Свидетельства ЭВМ</strong>Роспатент: WMS-система и «Учет активов ИТ»</div>
     </div>
   </div>
 </section>
